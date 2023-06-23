@@ -7,8 +7,8 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
   const isUserLoggedIn = true;
-  const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDroprown] = useState(false);
+  const [providers, setProviders] = useState(null);
 
   useEffect(() => {
     const setProviders = async () => {
@@ -43,7 +43,8 @@ const Nav = () => {
           </div>
         ) : (
           <>
-            {providers &&
+            {/* provider = next auth / google auth */}
+            {providers && //check apakah punya akses ke providers, kalau punya maka :
               Object.values(providers).map((provider) => (
                 <button type="button" key={provider.name} onClick={() => signIn(provider.id)} className="black_btn">
                   Sign In
